@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>СПИСОК ПОЛЬЗОВАТЕЛЕЙ ЧЕГО ТО...</title>
+
+    <style>
+        .header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">СТРАНИЦА НОВОГО ПОЛЬЗОВАТЕЛЯ</div>
+<form method="get" data-th-action="@{/userr/users/list}">
+    <button type="submit">&larr; К СПИСКУ ПОЛЬЗОВАТЕЛЕЙ</button>
+</form>
+<h1>НОВЫЙ ПОЛЬЗОВАТЕЛЬ</h1>
+<form method = "post" data-th-action="@{/userr/users/create}">
+    <label>
+        Имя Пользователя: <br>
+        <input type = "text" name = "username" data-th-value="${payload?.username}">
+    </label> <br>
+    <label>
+        Почта Пользователя:<br>
+        <textarea name = "userEmail" data-th-value="${payload?.userEmail}"></textarea>
+    </label><br>
+    <button type = "submit"> Создать </button>
+</form>
+</body>
+</html>

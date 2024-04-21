@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>ПОЛЬЗОВАТЕЛЬ ЧЕГО ТО...</title>
+
+    <style>
+        .header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">ДОБРО ПОЖАЛОВАТЬ КУДА-ТО...</div>
+<form method="get" data-th-action="@{/userr/users/list}">
+    <button type="submit">&larr; К СПИСКУ ПОЛЬЗОВАТЕЛЕЙ</button>
+</form>
+<h1 data-th-text="${userModel.username}"></h1>
+<ul>
+    <li><strong>ID</strong></li>: <span data-th-text="${userModel.id}"></span></li>
+    <li><strong>ИМЯ ПОЛЬЗОВАТЕЛЯ</strong></li>: <span data-th-text="${userModel.username}"></span></li>
+    <li><strong>ПОЧТА ПОЛЬЗОВАТЕЛЯ</strong></li>: <span data-th-text="${userModel.userEmail}"></span></li>
+</ul>
+
+
+<form method = "get" data-th-action="@{/userr/users/{userId}/edit(userId=${userModel.id})}">
+    <button type="submit">ИЗМЕНИТЬ</button>
+</form>
+
+<form method = "post" data-th-action="@{/userr/users/{userId}/delete(userId=${userModel.id})}">
+    <button type="submit">DELETE</button>
+</form>
+</body>
+</html>

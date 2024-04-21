@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЯ  >>[[${userModel.username}]]<< &ndash;</title>
+    <style>
+        .header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">РЕДАКТИРОВАНИЕ РОЛЬЗОВАТЕЛЯ</div>
+<form method="get" data-th-action="@{/userr/users/list}">
+    <button type="submit">&larr; К СПИСКУ ПОЛЬЗОВАТЕЛЕЙ</button>
+</form>
+
+
+
+<form method="get" data-th-action="@{/userr/users/{userId}(userId=${userModel.id})}">
+    <button type="submit">&larr; К ПОЛЬЗОВАТЕЛЮ</button>
+</form>
+
+<h1>РЕДАКТИРОВАНИЕ РОЛЬЗОВАТЕЛЯ  >>[[${userModel.username}]]<<</h1>
+
+<form method = "post" data-th-action="@{/userr/users/{userId}/edit(userId=${userModel.id})}">
+    <label>
+        Имя пользователя: <br>
+        <input type = "text" name = "username" data-th-value="${payload != null ? payload.username : userModel.username}">
+    </label> <br>
+    <label>
+        Почта:<br>
+        <textarea name = "userEmail" data-th-text="${payload != null ? payload.userEmail : userModel.userEmail}"></textarea>
+    </label><br>
+    <button type = "submit"> Изменить </button>
+</form>
+</body>
+</html>
