@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <title>СПИСОК ПОЛЬЗОВАТЕЛЕЙ ЧЕГО ТО...РАБОТА № 5</title>
+
+    <style>
+        .header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">СПИСОК ПОЛЬЗОВАТЕЛЕЙ ЧЕГО ТО...РАБОТА № 5</div>
+<form method="get" data-th-action="@{/userr/users/create}">
+    <button type="submit">&larr; СОЗДАТЬ СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ РАБОТА № 5</button>
+</form>
+
+<h1>Список пользователей</h1>
+
+<form method = "get" data-th-action="@{list}">
+    <label>Фильтр:<input type="text" name="filter" data-th-value="${filter}">
+        <button type ="submit">Поиск</button>
+    </label>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Почта</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr data-th-each = "user : ${users}">
+        <td data-th-text="${user.id}"></td>
+        <td>
+            <a data-th-href="@{{userId}(userId=${user.id})}"
+               data-th-text="${user.username}"></a>
+        </td>
+        <td>
+            <a data-th-href="@{{userId}(userId=${user.id})}"
+               data-th-text="${user.userEmail}"></a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
