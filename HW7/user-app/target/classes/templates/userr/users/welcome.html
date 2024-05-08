@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>ДЛЯ ВСЕХ</title>
+
+    <style>
+        .header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">ДОБРО ПОЖАЛОВАТЬ ВСЕ КТО ХОЧЕТ</div>
+<form method="get" data-th-action="@{/userr/users/list}">
+    <button type="submit">&larr; К СПИСКУ ПОЛЬЗОВАТЕЛЕЙ</button>
+</form>
+
+<form method="get" data-th-action="@{/userr/users/cat}">
+    <button type="submit">&larr; К КОТУ</button>
+</form>
+
+</body>
+</html>
