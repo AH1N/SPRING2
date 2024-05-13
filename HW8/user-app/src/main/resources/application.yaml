@@ -1,0 +1,8 @@
+usersapp:
+  services:
+    hw3:
+      uri: http://localhost:8081
+
+server:
+  port: 8080
+#debug: true
